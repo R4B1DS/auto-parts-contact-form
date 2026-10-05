@@ -57,3 +57,6 @@ Download `index.html` and open it in your browser. You don't need to install any
 
 **Nicolas Borges Ocampos**
 [LinkedIn](https://www.linkedin.com/in/nicolas-borges-ocampos)
+
+
+> I used Claude (an AI assistant) to help organize this README and make minor corrections to the code. The project, ideas, and original code are my own.
