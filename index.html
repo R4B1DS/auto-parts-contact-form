@@ -1,187 +1,84 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Contato</title>
+<html>
+    <head>
+        <title>Form Contato</title>
+    </head>
+
     <style>
-        :root {
-            --asfalto: #1B1D1F;
-            --grafite: #2A2D31;
-            --amarelo: #FFC21A;
-            --aco: #C9CED3;
-            --papel: #F2F3F4;
-            --erro: #B3261E;
+        *{margin:0;padding:0;box-sizing:0;}
+        body{
+            background-color: #5F7C8A;
         }
- 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
- 
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            background: var(--asfalto);
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-            color: var(--asfalto);
-        }
- 
-        .contato {
-            display: grid;
-            grid-template-columns: 5fr 6fr;
-            width: 100%;
-            max-width: 900px;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-        }
- 
-        /* Painel esquerdo: faixa de aviso de oficina + chamada */
-        .aviso {
-            position: relative;
-            background: var(--grafite);
-            color: var(--papel);
-            padding: 56px 36px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
- 
-        .aviso::before {
-            content: "";
+
+        form{
+            background-color: white;
+            max-width: 500px;
+            width: 70%;
+            padding: 20px;
             position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 16px;
-            background: repeating-linear-gradient(
-                -45deg,
-                var(--amarelo) 0 16px,
-                var(--asfalto) 16px 32px
-            );
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
         }
- 
-        .aviso h1 {
-            font-family: Impact, 'Haettenschweiler', 'Arial Narrow Bold', 'Arial Narrow', sans-serif;
-            font-weight: 400;
-            font-size: clamp(2.2rem, 5vw, 3rem);
-            line-height: 1.05;
-            letter-spacing: 0.5px;
-            color: var(--amarelo);
-            margin-bottom: 16px;
+        form h3{
+            text-align: center;
+            color: #5F7C8A;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
- 
-        .aviso p {
-            font-size: 1rem;
-            line-height: 1.55;
-            color: var(--aco);
-            max-width: 32ch;
-        }
- 
-        /* Painel direito: formulário */
-        form {
-            background: var(--papel);
-            padding: 48px 40px 40px;
-        }
- 
-        form h2 {
-            font-size: 1.35rem;
-            margin-bottom: 8px;
-        }
- 
-        form label {
-            display: block;
-            margin-top: 18px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
- 
-        form input[type=email],
-        form input[type=tel] {
+
+        form input[type=text],
+        form input[type=password]{
             width: 100%;
-            height: 48px;
-            margin-top: 6px;
-            padding: 0 14px;
-            font-size: 1rem;
-            color: var(--asfalto);
-            background: #fff;
-            border: 2px solid var(--aco);
-            border-radius: 4px;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            height: 45px;
+            border: 1px solid #ccc;
+            padding-left: 10px;
+            margin: 10px 0;
         }
- 
-        form input::placeholder { color: #8A949B; }
- 
-        form input:hover { border-color: #8A949B; }
- 
-        form input:focus {
-            outline: none;
-            border-color: var(--asfalto);
-            box-shadow: 0 0 0 4px var(--amarelo);
-        }
- 
-        /* Borda vermelha só depois que a pessoa digita algo inválido */
-        form input:not(:placeholder-shown):invalid {
-            border-color: var(--erro);
-        }
- 
-        form input[type=submit] {
+
+        form input[type=submit]{
             width: 100%;
-            height: 52px;
-            margin-top: 28px;
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--asfalto);
-            background: var(--amarelo);
-            border: 2px solid var(--asfalto);
-            border-radius: 4px;
-            box-shadow: 4px 4px 0 var(--asfalto);
+            height: 30px;
             cursor: pointer;
-            transition: transform 0.15s, box-shadow 0.15s;
+            background: #5F7C8A;
+            color: white;
+            border: 0;
+            border-radius: 20px;
+            transition: 1S;
         }
- 
-        form input[type=submit]:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0 var(--asfalto);
+
+        form input[type=submit]:hover{
+            background-color: #4A5F6A;
         }
- 
-        form input[type=submit]:active {
-            transform: translate(3px, 3px);
-            box-shadow: 1px 1px 0 var(--asfalto);
+        form input[type=text]:focus{
+            outline: 0;
         }
- 
-        form input[type=submit]:focus-visible {
-            outline: 3px solid var(--asfalto);
-            outline-offset: 3px;
-        }
- 
-        @media (max-width: 720px) {
-            .contato { grid-template-columns: 1fr; }
-            .aviso { padding: 44px 24px 28px; }
-            form { padding: 32px 24px 28px; }
-        }
- 
-        @media (prefers-reduced-motion: reduce) {
-            * { transition: none !important; }
+        form input[type=password]:focus{
+            outline: 0;
         }
     </style>
-</head>
-<body>
-    <main class="contato">
-        <section class="aviso">
-            <h1>Não achou a peça?</h1>
-            <p>Deixe seu e-mail e telefone. A LENZ AUTO PEÇAS confere o estoque e retorna com preço e prazo.</p>
-        </section>
- 
-        <!-- Troque "/contato" pela rota do seu backend -->
-        <form action="/contato" method="post">
-            <h2>Entrar em contato</h2>
- 
-            <label for="email">E-mail</label>
-            <input id="email" type="email" name="email" placeholder="seu e-mail..." autocomplete="email" required>
- 
-            <label for="telefone">Telefone</label>
-            <input id="telefone" type="tel" name="telefone" placeholder="telefone para contato..." autocomplete="tel" required>
- 
-            <input type="submit" value="Enviar contato">
+
+    <body>
+        <form>
+            <h3>Entrar em Contato</h3>
+            <input id="email" type="text" name="email" placeholder="seu e-mail..."/>
+            <input id="password" type="password" name="senha" placeholder="telefone para contato..."/>
+            <input type="submit" name="acao" value="enviar"/>
         </form>
-    </main>
-</body>
+        <script>
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+
+            email.addEventListener('focus',()=>{
+                     email.style.borderColor = "#5F7C8A";
+            });
+            email.addEventListener('blur',()=>{
+                     email.style.borderColor = "#ccc";
+            });
+            password.addEventListener('focus',()=>{
+                     password.style.borderColor = "#5F7C8A";
+            });
+            password.addEventListener('blur',()=>{
+                     password.style.borderColor = "#ccc";
+            });
+        </script>
+    </body>
 </html>
